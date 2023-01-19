@@ -1,8 +1,9 @@
 package com.api.nodemcu.modelo;
 
 
-import javax.persistence.*;
-import java.util.Date;
+
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name="login")
@@ -10,13 +11,13 @@ public class LoginModelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "usuario", unique = true)
+    @Column(name = "user", unique = true)
     private String usuario;
 
-    @Column(name = "senha")
+    @Column(name = "password")
     private int senha;
 
     public int getId() {

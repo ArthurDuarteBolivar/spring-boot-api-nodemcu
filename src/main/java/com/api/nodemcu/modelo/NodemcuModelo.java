@@ -1,13 +1,9 @@
 package com.api.nodemcu.modelo;
 
 
+import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -17,25 +13,34 @@ public class NodemcuModelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "counter")
     private int counter;
 
-    @Column(name = "state", nullable = false, length = 10)
+    @Column(name = "state")
     private String state;
 
-    @Column(name = "data")
+    @Column(name = "date")
     private Date data;
+
+    @Column(name = "name")
+    private String nome;
+
+    @Column(name = "id_user")
+    private int id_user;
+
+
 
     @PrePersist
     protected void prePersist() {
         if (this.data == null){
+            TimeZone.setDefault(TimeZone.getTimeZone("America/Sao_Paulo"));
             data = new Date();
-            System.out.println(data);
         }
     }
+
     public int getId() {
         return id;
     }
@@ -60,13 +65,27 @@ public class NodemcuModelo {
         this.state = state;
     }
 
-    public Date getDate() {
+    public Date getData() {
         return data;
-    } 
+    }
 
-    public void setDate(Date data) {
+    public void setData(Date data) {
         this.data = data;
     }
-//    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", locale);
-//    java.util.Locale locale = new java.util.Locale("pt","BR");
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
 }

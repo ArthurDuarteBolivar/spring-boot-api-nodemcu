@@ -14,20 +14,23 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/nodemcu")
 public class NodemcuController {
 
     @Autowired
     private NodemcuRepository repository;
 
+    @CrossOrigin
     @GetMapping
     public List<NodemcuModelo> list(){
         return repository.findAll();
     }
 
     @PostMapping
-    public void save(@RequestBody NodemcuModelo nodemcu){
+    public NodemcuModelo save(@RequestBody NodemcuModelo nodemcu){
         repository.save(nodemcu);
+        return nodemcu;
     }
 
 

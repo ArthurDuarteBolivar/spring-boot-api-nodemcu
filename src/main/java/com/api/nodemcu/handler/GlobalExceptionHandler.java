@@ -1,8 +1,8 @@
 package com.api.nodemcu.handler;
 
+import jakarta.annotation.Resource;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.annotation.Resource;
 import org.springframework.cglib.proxy.UndeclaredThrowableException;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
