@@ -9,6 +9,8 @@ public interface NodemcuRepository extends JpaRepository<NodemcuModelo, Integer>
 
     List<NodemcuModelo> findAll();
 
+    List<NodemcuModelo> findByNome(String name);
+
     <NodemcuMod extends NodemcuModelo> NodemcuMod save(NodemcuMod nodemcu);
 
 }

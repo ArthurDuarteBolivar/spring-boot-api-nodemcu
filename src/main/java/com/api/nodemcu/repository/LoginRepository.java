@@ -13,6 +13,5 @@ public interface LoginRepository  extends JpaRepository<LoginModelo, Integer> {
 
     List<LoginModelo> findByUsuario(String name);
 
-    List<LoginModelo> findBySenha(String name);
 
 }
